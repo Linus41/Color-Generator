@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css"> 
+</head>
+
+<body>
+    <button id="color" type="button">
+        Color Generator
+    </button>
+    <div id="colors-appear-here"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $("button").on("click", function () {
+            
+            var queryURL = "https://api.noopschallenge.com/hexbot?count=5&width=1000&height=1000";
+
+
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            }).then(function (response) {
+                //logs out an array of five color values
+               console.log(response);
+               var colors = response.colors;
+               console.log(colors);
+                //looping through array
+                for (var i = 0; i < colors.length; i++) {
+                    //setting up empty img tag to store color img
+                    var colorBox = $("<img>");
+                    var div = $("<div>");
+                    div.attr("id", "pictures");
+                    //putting color array into img element
+                    colorBox.val(colors[i]);
+                    console.log(colorBox);
+                    div.append(colorBox);
+                    //appending colorbox to hard-coded div to make them appear
+                   $("#colors-appear-here").append(div);
+                }
+            })
+        })
+    </script>
+
+</body>
+
+</html>
