@@ -1,4 +1,13 @@
-#pictures {
+#boxes {
     width: 100px;
     height: 100px;
+}
+
+#color {
+    width: 130px;
+    height: 80px;
+    border-radius: 20px;
+    background-color: coral;
+    color: black;
+    font-size: 24px;
 }
