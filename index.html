@@ -12,6 +12,7 @@
     </button>
     <div id="colors-appear-here"></div>
     <div id="favoriteColors"></div>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
         $("button").on("click", function () {
@@ -52,14 +53,14 @@
             })
         })
         //this is how to add event listener in jQuery
-        $("#boxes").bind('click', function() {
-            console.log("click the button", $(this).find(".tooltiptext").text());
-        });
+        $("#boxes").onclick = saveFave;
         
-        // function saveFave() {
+    
+        
+        function saveFave() {
+            console.log("click the button", $(this).find(".tooltiptext").text());
             
-            
-        // };
+        };
 
 
 
