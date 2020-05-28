@@ -15,7 +15,7 @@
     <script type="text/javascript">
         $("button").on("click", function () {
             
-            var queryURL = "https://api.noopschallenge.com/hexbot?count=5&width=500&height=500";
+            var queryURL = "https://api.noopschallenge.com/hexbot?count=1&width=500&height=500";
 
 
             $.ajax({
@@ -23,20 +23,25 @@
                 method: "GET"
             }).then(function (response) {
                 //logs out an array of five colors, each with a value and x y coordinates
-               console.log(response);
+            //    console.log(response);
                //store response in variable
                var colors = response.colors;
+               var hexCode = response.colors[0].value;
+               console.log(hexCode)
                //logs out just the color values and coordinate key/value pairs
-               console.log(colors);
+            //    console.log(colors);
                 //loops through array
                 for (var i = 0; i < colors.length; i++) {
                     //create empty div and give it an id
                     var div = $("<div>");
                     div.attr("id", "boxes");
+                    var span = $("<span>");
+                    span.addClass("tooltiptext");
+                    span.text(hexCode);
                     //give div a css background color and give to it colors var, store in var shade
-                    var shade = div.css({"background-color": colors[i].value, "width":"100px", "height":"100px","float":"right"});
-                    
-                    console.log(shade);
+                    var shade = div.css({"background-color": colors[i].value,"float":"right"});
+                    // console.log(shade);
+                    div.append(span);
                     // div.append(shade);
                     //appending div to hard-coded div#colorsappear...
                    $("#colors-appear-here").append(shade);
