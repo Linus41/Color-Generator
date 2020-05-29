@@ -20,19 +20,14 @@
 
             var queryURL = "https://api.noopschallenge.com/hexbot?count=1&width=500&height=500";
 
-
             $.ajax({
                 url: queryURL,
                 method: "GET"
             }).then(function (response) {
-                //logs out an array of five colors, each with a value and x y coordinates
-                //    console.log(response);
                 //store response in variable
                 var colors = response.colors;
                 hexCode = response.colors[0].value;
-                console.log(hexCode)
-                //logs out just the color values and coordinate key/value pairs
-                //    console.log(colors);
+    
                 //loops through array
                 for (var i = 0; i < colors.length; i++) {
                     //create empty div and give it an id
@@ -44,9 +39,7 @@
                     span.text(hexCode);
                     //give div a css background color and give to it colors var, store in var shade
                     var shade = div.css({ "background-color": colors[i].value, "float": "right" });
-                    // console.log(shade);
                     div.append(span);
-                    // div.append(shade);
                     //appending div to hard-coded div#colorsappear...
                     $("#colors-appear-here").append(shade);
                 }
@@ -57,17 +50,6 @@
         $("#colors-appear-here").click(function () {
             console.log(hexCode);
         });
-
-
-
-        // function saveFave() {
-        //     console.log("click the button", $(this).find(".tooltiptext").text());
-
-        // };
-
-
-
-
 
     </script>
 
