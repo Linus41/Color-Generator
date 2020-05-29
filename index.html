@@ -15,6 +15,7 @@
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
+        var hexCode;
         $("button").on("click", function () {
 
             var queryURL = "https://api.noopschallenge.com/hexbot?count=1&width=500&height=500";
@@ -28,7 +29,7 @@
                 //    console.log(response);
                 //store response in variable
                 var colors = response.colors;
-                var hexCode = response.colors[0].value;
+                hexCode = response.colors[0].value;
                 console.log(hexCode)
                 //logs out just the color values and coordinate key/value pairs
                 //    console.log(colors);
@@ -53,14 +54,16 @@
             })
         })
         //this is how to add event listener in jQuery
-        $("#boxes").onclick = saveFave;
-        
-    
-        
-        function saveFave() {
-            console.log("click the button", $(this).find(".tooltiptext").text());
-            
-        };
+        $("#colors-appear-here").click(function () {
+            console.log(hexCode);
+        });
+
+
+
+        // function saveFave() {
+        //     console.log("click the button", $(this).find(".tooltiptext").text());
+
+        // };
 
 
 
